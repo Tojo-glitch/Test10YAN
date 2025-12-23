@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5;
+  font-family: sans-serif;
+}
+
+.coupon {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+.tear-area {
+  background: #ff5252;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  cursor: grab;
+}
+
+.coupon-content {
+  padding: 30px;
+  text-align: center;
+  display: none;
+}
