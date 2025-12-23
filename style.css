@@ -110,3 +110,33 @@ body {
   font-size: 10px;
   text-align: center;
 }
+/* === AIRLINE LOGO === */
+.airline-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.airline-logo svg {
+  width: 46px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+}
+
+.airline-name {
+  line-height: 1;
+}
+
+.airline-name strong {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.airline-name span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #444;
+}
