@@ -1,48 +1,49 @@
-const pass = document.querySelector(".pass");
-let rect, cx, cy;
+const card = document.getElementById("card");
 
-function move(e) {
-  const x = e.touches ? e.touches[0].clientX : e.clientX;
-  const y = e.touches ? e.touches[0].clientY : e.clientY;
+let isDown = false;
+let startX, startY;
+let rotX = -10;
+let rotY = 20;
 
-  const dx = (x - cx) / rect.width;
-  const dy = (y - cy) / rect.height;
-
-  pass.style.transform =
-    `rotateX(${-dy * 6}deg) rotateY(${dx * 8}deg)`;
+function updateRotation() {
+  card.style.transform =
+    `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 }
 
-function reset() {
-  pass.style.transform = "rotateX(0) rotateY(0)";
-}
+updateRotation();
 
-pass.addEventListener("mouseenter", () => {
-  rect = pass.getBoundingClientRect();
-  cx = rect.left + rect.width / 2;
-  cy = rect.top + rect.height / 2;
+/* Mouse */
+card.addEventListener("mousedown", e => {
+  isDown = true;
+  startX = e.clientX;
+  startY = e.clientY;
 });
 
-pass.addEventListener("mousemove", move);
-pass.addEventListener("mouseleave", reset);
+window.addEventListener("mouseup", () => isDown = false);
 
-pass.addEventListener("touchstart", () => {
-  rect = pass.getBoundingClientRect();
-  cx = rect.left + rect.width / 2;
-  cy = rect.top + rect.height / 2;
-});
-/* === TEAR EFFECT (NO DISAPPEAR) === */
-const stub = document.querySelector(".pass-right");
-
-let torn = false;
-
-stub.addEventListener("click", () => {
-  if (torn) return;
-  torn = true;
-
-  stub.style.transition = "transform 0.3s ease";
-  stub.style.transform = "translateX(12px) rotate(1deg)";
+window.addEventListener("mousemove", e => {
+  if (!isDown) return;
+  rotY += (e.clientX - startX) * 0.3;
+  rotX -= (e.clientY - startY) * 0.3;
+  startX = e.clientX;
+  startY = e.clientY;
+  updateRotation();
 });
 
-pass.addEventListener("touchmove", move);
-pass.addEventListener("touchend", reset);
+/* Touch (mobile) */
+card.addEventListener("touchstart", e => {
+  isDown = true;
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
 
+card.addEventListener("touchend", () => isDown = false);
+
+card.addEventListener("touchmove", e => {
+  if (!isDown) return;
+  rotY += (e.touches[0].clientX - startX) * 0.3;
+  rotX -= (e.touches[0].clientY - startY) * 0.3;
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+  updateRotation();
+});
