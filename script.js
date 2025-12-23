@@ -30,6 +30,19 @@ pass.addEventListener("touchstart", () => {
   cx = rect.left + rect.width / 2;
   cy = rect.top + rect.height / 2;
 });
+/* === TEAR EFFECT (NO DISAPPEAR) === */
+const stub = document.querySelector(".pass-right");
+
+let torn = false;
+
+stub.addEventListener("click", () => {
+  if (torn) return;
+  torn = true;
+
+  stub.style.transition = "transform 0.3s ease";
+  stub.style.transform = "translateX(12px) rotate(1deg)";
+});
 
 pass.addEventListener("touchmove", move);
 pass.addEventListener("touchend", reset);
+
