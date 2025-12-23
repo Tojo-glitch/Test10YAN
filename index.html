@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forever Boarding Pass</title>
-
-  <!-- IMPORTANT: ต้องชื่อ style.css -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3650 Dayairlines Boarding Pass</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- BACKGROUND SNOW -->
   <div class="snow"></div>
 
-  <!-- 3D PERSPECTIVE WRAPPER -->
   <div class="pass-wrap">
-
-    <!-- BOARDING PASS CARD (ตัวนี้คือหัวใจ) -->
     <div class="pass">
 
-      <!-- LEFT SIDE -->
       <div class="pass-left">
+
+        <!-- AIRLINE LOGO -->
         <div class="airline-logo">
-  <!-- LOGO SVG -->
-  <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
-    <!-- Heart -->
-    <path
-      d="M100 170
-         C20 110, 0 70, 40 40
-         C70 15, 100 35, 100 55
-         C100 35, 130 15, 160 40
-         C200 70, 180 110, 100 170Z"
-      fill="white"
-      opacity="0.95"
-    />
+          <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+            <!-- Heart -->
+            <path
+              d="M50 85
+                 C10 55,5 30,25 18
+                 C38 10,50 20,50 30
+                 C50 20,62 10,75 18
+                 C95 30,90 55,50 85Z"
+              fill="#ffffff"/>
+            <!-- Plane -->
+            <path
+              d="M50 28 L55 45 L80 50 L55 55 L50 72 L45 55 L20 50 L45 45Z"
+              fill="#1b2a4a"/>
+          </svg>
 
-    <!-- Airplane -->
-    <path
-      d="M100 45
-         L110 85
-         L160 95
-         L110 105
-         L100 145
-         L90 105
-         L40 95
-         L90 85Z"
-      fill="#1b2a4a"
-    />
-  </svg>
-
-  <div class="airline-name">
-    <strong>3650</strong>
-    <span>Dayairlines</span>
-  </div>
-</div>
+          <div class="airline-name">
+            <strong>3650</strong>
+            <span>Dayairlines</span>
+          </div>
+        </div>
 
         <h1>BOARDING PASS</h1>
 
@@ -92,22 +75,17 @@
           This is not a real ticket,<br>
           but a promise of a journey we’ll take together.
         </p>
+
       </div>
 
-      <!-- RIGHT STUB -->
       <div class="pass-right">
         <div class="barcode"></div>
-
-        <div class="gate">
-          GATE<br>
-          <strong>B</strong>
-        </div>
+        <div class="gate">GATE<br><strong>B</strong></div>
       </div>
 
     </div>
   </div>
 
-  <!-- IMPORTANT: ต้องชื่อ script.js -->
   <script src="script.js"></script>
 </body>
 </html>
