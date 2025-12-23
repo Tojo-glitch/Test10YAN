@@ -20,7 +20,10 @@ class Flake {
   }
   move() {
     this.y += this.s;
-    if (this.y > h) this.y = -10;
+    if (this.y > h) {
+      this.y = -10;
+      this.x = Math.random() * w;
+    }
   }
   draw() {
     ctx.beginPath();
@@ -30,30 +33,43 @@ class Flake {
   }
 }
 
-for (let i = 0; i < 180; i++) flakes.push(new Flake());
+for (let i = 0; i < 160; i++) flakes.push(new Flake());
 
 function snow() {
-  ctx.clearRect(0,0,w,h);
+  ctx.clearRect(0, 0, w, h);
   flakes.forEach(f => { f.move(); f.draw(); });
   requestAnimationFrame(snow);
 }
 snow();
 
-/************ Tear animation ************/
-let startX = 0;
+/************ Tear Interaction ************/
 const tearZone = document.getElementById("tearZone");
 const content = document.getElementById("cardContent");
 
-tearZone.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
+let startX = 0;
+let dragging = false;
+let torn = false;
 
-tearZone.addEventListener("touchmove", e => {
-  const diff = startX - e.touches[0].clientX;
-  if (diff > 60) tear();
-}, { once: true });
+function start(e) {
+  if (torn) return;
+  dragging = true;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+}
+
+function move(e) {
+  if (!dragging || torn) return;
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  if (startX - x > 60) tear();
+}
+
+function end() {
+  dragging = false;
+}
 
 function tear() {
+  torn = true;
+
+  // Shake
   gsap.to(".card", {
     rotation: 1,
     duration: 0.1,
@@ -61,8 +77,9 @@ function tear() {
     repeat: 3
   });
 
+  // Tear off
   gsap.to(tearZone, {
-    x: -220,
+    x: -240,
     opacity: 0,
     duration: 0.5,
     ease: "power2.in",
@@ -78,3 +95,12 @@ function tear() {
     }
   });
 }
+
+/* Touch + Mouse */
+tearZone.addEventListener("touchstart", start, { passive: true });
+tearZone.addEventListener("touchmove", move, { passive: true });
+tearZone.addEventListener("touchend", end);
+
+tearZone.addEventListener("mousedown", start);
+tearZone.addEventListener("mousemove", move);
+tearZone.addEventListener("mouseup", end);
