@@ -1,5 +1,4 @@
 const tearZone = document.getElementById("tearZone");
-const ticket = document.getElementById("ticket");
 const sound = document.getElementById("tearSound");
 
 let startX = 0;
@@ -22,10 +21,7 @@ function tear() {
   if (navigator.vibrate) navigator.vibrate([40, 30, 60]);
 
   tearZone.style.transition = "transform .6s ease";
-  ticket.style.transition = "transform .6s ease";
-
   tearZone.style.transform = "translateX(-120px) rotate(-8deg)";
-  ticket.style.transform = "translateX(40px)";
 }
 
 tearZone.addEventListener("touchstart", start);
@@ -33,7 +29,7 @@ tearZone.addEventListener("touchmove", move);
 tearZone.addEventListener("mousedown", start);
 tearZone.addEventListener("mousemove", move);
 
-/* Snow 3D */
+/* SNOW */
 const canvas = document.getElementById("snow");
 const ctx = canvas.getContext("2d");
 let w, h, snow = [];
@@ -54,10 +50,10 @@ for (let i = 0; i < 120; i++) {
   });
 }
 
-function draw() {
+(function draw() {
   ctx.clearRect(0,0,w,h);
   snow.forEach(s => {
-    s.y += s.z * 1.2;
+    s.y += s.z * 1.1;
     if (s.y > h) s.y = -5;
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.r * s.z, 0, Math.PI*2);
@@ -65,5 +61,4 @@ function draw() {
     ctx.fill();
   });
   requestAnimationFrame(draw);
-}
-draw();
+})();
