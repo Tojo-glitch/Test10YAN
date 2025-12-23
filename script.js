@@ -1,7 +1,42 @@
-/************ 3D Snow ************/
+const tearZone = document.getElementById("tearZone");
+const ticket = document.getElementById("ticket");
+const sound = document.getElementById("tearSound");
+
+let startX = 0;
+let torn = false;
+
+function start(e) {
+  if (torn) return;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+}
+
+function move(e) {
+  if (torn) return;
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  if (startX - x > 70) tear();
+}
+
+function tear() {
+  torn = true;
+  sound.play();
+  if (navigator.vibrate) navigator.vibrate([40, 30, 60]);
+
+  tearZone.style.transition = "transform .6s ease";
+  ticket.style.transition = "transform .6s ease";
+
+  tearZone.style.transform = "translateX(-120px) rotate(-8deg)";
+  ticket.style.transform = "translateX(40px)";
+}
+
+tearZone.addEventListener("touchstart", start);
+tearZone.addEventListener("touchmove", move);
+tearZone.addEventListener("mousedown", start);
+tearZone.addEventListener("mousemove", move);
+
+/* Snow 3D */
 const canvas = document.getElementById("snow");
 const ctx = canvas.getContext("2d");
-let w, h, flakes = [];
+let w, h, snow = [];
 
 function resize() {
   w = canvas.width = window.innerWidth;
@@ -10,106 +45,25 @@ function resize() {
 window.addEventListener("resize", resize);
 resize();
 
-class Flake {
-  constructor() {
-    this.reset();
-    this.y = Math.random() * h;
-  }
-  reset() {
-    this.x = Math.random() * w;
-    this.y = -20;
-    this.z = Math.random() * 0.8 + 0.2; // depth
-    this.r = this.z * 4;
-    this.speed = this.z * 1.5;
-  }
-  update() {
-    this.y += this.speed;
-    if (this.y > h) this.reset();
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${this.z})`;
-    ctx.shadowBlur = 10 * this.z;
-    ctx.shadowColor = "white";
-    ctx.fill();
-  }
+for (let i = 0; i < 120; i++) {
+  snow.push({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    z: Math.random() * 1 + .3,
+    r: Math.random() * 2 + 1
+  });
 }
 
-for (let i = 0; i < 180; i++) flakes.push(new Flake());
-
-function snow() {
+function draw() {
   ctx.clearRect(0,0,w,h);
-  flakes.forEach(f => { f.update(); f.draw(); });
-  requestAnimationFrame(snow);
-}
-snow();
-
-/************ Tear Interaction ************/
-const tearZone = document.getElementById("tearZone");
-const content = document.getElementById("cardContent");
-const sound = document.getElementById("tearSound");
-
-let startX = 0;
-let dragging = false;
-let torn = false;
-
-function start(e) {
-  if (torn) return;
-  dragging = true;
-  startX = e.touches ? e.touches[0].clientX : e.clientX;
-}
-
-function move(e) {
-  if (!dragging || torn) return;
-  const x = e.touches ? e.touches[0].clientX : e.clientX;
-  if (startX - x > 60) tear();
-}
-
-function end() {
-  dragging = false;
-}
-
-function tear() {
-  torn = true;
-
-  // vibration
-  if (navigator.vibrate) navigator.vibrate([30, 40, 30]);
-
-  // sound
-  sound.currentTime = 0;
-  sound.play();
-
-  // shake
-  gsap.to(".card", {
-    rotation: 1,
-    duration: 0.1,
-    yoyo: true,
-    repeat: 3
+  snow.forEach(s => {
+    s.y += s.z * 1.2;
+    if (s.y > h) s.y = -5;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r * s.z, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(255,255,255,.8)";
+    ctx.fill();
   });
-
-  // tear off
-  gsap.to(tearZone, {
-    x: -260,
-    opacity: 0,
-    duration: 0.6,
-    ease: "power2.in",
-    onComplete: () => {
-      tearZone.remove();
-      content.style.display = "flex";
-      gsap.to(content, {
-        opacity: 1,
-        duration: 0.8,
-        ease: "power2.out"
-      });
-    }
-  });
+  requestAnimationFrame(draw);
 }
-
-tearZone.addEventListener("touchstart", start, { passive: true });
-tearZone.addEventListener("touchmove", move, { passive: true });
-tearZone.addEventListener("touchend", end);
-
-tearZone.addEventListener("mousedown", start);
-tearZone.addEventListener("mousemove", move);
-tearZone.addEventListener("mouseup", end);
+draw();
