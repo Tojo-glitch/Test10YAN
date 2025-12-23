@@ -3,90 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forever Pass</title>
-
-  <!-- iOS App Mode -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <link rel="stylesheet" href="style.css">
+  <title>Forever Boarding Pass</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<canvas id="snow"></canvas>
+  <!-- Snow background -->
+  <div class="snow"></div>
 
-<div class="pass-wrap">
+  <!-- Perspective wrapper -->
+  <div class="pass-wrap">
 
-  <!-- STUB -->
-  <div class="stub" id="tearZone">
-    <div class="stub-top">
-      FOREVER<br>PASS
-    </div>
-    <div class="stub-mid">
-      GATE<br><strong>LOVE</strong>
-    </div>
-    <div class="stub-bottom">
-      SLIDE<br>TO<br>TEAR
+    <!-- BOARDING PASS CARD -->
+    <div class="pass">
+
+      <div class="pass-left">
+        <h1>BOARDING PASS</h1>
+
+        <div class="field">
+          <span>Passenger</span>
+          <strong>You & Me</strong>
+        </div>
+
+        <div class="field">
+          <span>From</span>
+          <strong>The Day We Met</strong>
+        </div>
+
+        <div class="field">
+          <span>To</span>
+          <strong>Forever</strong>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <span>Date</span>
+            <strong>10th Anniversary</strong>
+          </div>
+          <div class="field">
+            <span>Seat</span>
+            <strong>Side by Side</strong>
+          </div>
+        </div>
+
+        <div class="field">
+          <span>Class</span>
+          <strong>Forever Class</strong>
+        </div>
+
+        <p class="note">
+          This is not a real ticket,<br>
+          but a promise of a journey we’ll take together.
+        </p>
+      </div>
+
+      <!-- BARCODE STUB -->
+      <div class="pass-right">
+        <div class="barcode"></div>
+        <div class="gate">GATE<br><strong>B</strong></div>
+      </div>
+
     </div>
   </div>
 
-  <!-- MAIN PASS -->
-  <div class="pass">
-
-    <div class="header">
-      <span>PASSENGER</span>
-      <h1>You &amp; Me</h1>
-    </div>
-
-    <div class="route">
-      <div>
-        <label>FROM</label>
-        <p>The Day We Met</p>
-      </div>
-      <div class="arrow">→</div>
-      <div>
-        <label>TO</label>
-        <p>Forever</p>
-      </div>
-    </div>
-
-    <div class="details">
-      <div>
-        <label>DEPARTURE DATE</label>
-        <p>Our 10th Anniversary</p>
-      </div>
-      <div>
-        <label>SEAT</label>
-        <p>Side by Side</p>
-      </div>
-      <div>
-        <label>CLASS</label>
-        <p>Forever Class</p>
-      </div>
-      <div>
-        <label>GATE</label>
-        <p>LOVE</p>
-      </div>
-    </div>
-
-    <div class="codes">
-      <div class="qr">
-        <div class="qr-box"></div>
-        <span>SCAN</span>
-      </div>
-    </div>
-
-    <div class="footer">
-      This is not a real ticket, but a promise of a journey we’ll take together.
-    </div>
-
-    <!-- BARCODE (FULL HEIGHT RIGHT) -->
-    <div class="barcode"></div>
-
-  </div>
-</div>
-
-<audio id="tearSound" src="assets/tear.mp3"></audio>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
