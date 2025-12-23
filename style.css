@@ -1,117 +1,129 @@
 * {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #0f2027;
+  background: radial-gradient(circle at top, #0a1a2f, #020812);
   overflow: hidden;
-  touch-action: manipulation;
+  color: #111;
 }
 
-/* Snow canvas */
-#snow {
+canvas {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at top, #1c3b50, #0f2027);
+  z-index: 0;
+}
+
+.pass-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 92vw;
+  max-width: 720px;
+  height: 240px;
+  margin: 20vh auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+
+/* Tear Stub */
+.tear-stub {
+  width: 90px;
+  background: #e63946;
+  color: #fff;
+  padding: 14px 8px;
+  text-align: center;
+  clip-path: polygon(
+    100% 0%, 90% 5%, 100% 10%, 90% 15%, 100% 20%,
+    90% 25%, 100% 30%, 90% 35%, 100% 40%, 90% 45%,
+    100% 50%, 90% 55%, 100% 60%, 90% 65%, 100% 70%,
+    90% 75%, 100% 80%, 90% 85%, 100% 90%, 90% 95%, 100% 100%,
+    0 100%, 0 0
+  );
+  cursor: grab;
+}
+
+.stub-text {
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.stub-action {
+  font-size: 10px;
+  opacity: .8;
+}
+
+/* Ticket */
+.ticket {
+  flex: 1;
+  background: #f7f7f7;
+  padding: 18px 22px;
+  position: relative;
+}
+
+.ticket::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/glow.png") center/cover no-repeat;
+  opacity: .15;
   pointer-events: none;
 }
 
-/* Card */
-.card {
-  width: 92vw;
-  max-width: 560px;
-  height: 240px;
-  display: flex;
-  background: rgba(255,255,255,0.96);
-  border-radius: 22px;
-  box-shadow: 0 30px 70px rgba(0,0,0,.45);
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-}
-
-/* Tear zone */
-.tear-zone {
-  width: 150px;
-  background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: 12px;
+.ticket-header span {
+  font-size: 10px;
   letter-spacing: 1px;
-  user-select: none;
-  cursor: grab;
-
-  /* Zigzag edge */
-  clip-path: polygon(
-    0 0, 88% 0,
-    100% 6%, 88% 12%,
-    100% 18%, 88% 24%,
-    100% 30%, 88% 36%,
-    100% 42%, 88% 48%,
-    100% 54%, 88% 60%,
-    100% 66%, 88% 72%,
-    100% 78%, 88% 84%,
-    100% 90%, 88% 96%,
-    0 100%
-  );
+  color: #666;
 }
 
-.card-content {
-  flex: 1;
-  padding: 22px 24px;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 0;
-}
-
-.card-content h3 {
-  margin: 0;
-  letter-spacing: 2px;
-  font-size: 12px;
-  opacity: .6;
-}
-
-.card-content > p {
+.ticket-header h1 {
   margin: 4px 0 14px;
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 26px;
 }
 
-.row {
+.route {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: 12px;
-  margin-bottom: 8px;
 }
 
-.row.single {
-  justify-content: flex-start;
+.route label,
+.details label {
+  font-size: 9px;
+  color: #888;
 }
 
-.note {
+.route p,
+.details p {
+  margin: 2px 0 8px;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.details div:last-child {
+  grid-column: span 2;
+}
+
+.footer {
+  font-size: 10px;
+  color: #777;
   margin-top: 10px;
-  font-size: 11px;
-  opacity: .6;
-  line-height: 1.4;
 }
 
-/* Desktop */
-@media (min-width: 768px) {
-  .card {
-    height: 260px;
-  }
-  .tear-zone {
-    width: 180px;
-    font-size: 14px;
+@media (max-width: 600px) {
+  .pass-wrapper {
+    height: 210px;
   }
 }
