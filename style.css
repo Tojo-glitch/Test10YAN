@@ -5,18 +5,23 @@
 
 body {
   margin: 0;
-  background: #0b1d33;
   height: 100vh;
+  background: radial-gradient(#0b1d33, #050b14);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-.wrapper {
-  padding: 20px;
+#snow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
 }
 
 .boarding-pass {
+  position: relative;
+  z-index: 1;
   width: 340px;
   height: 180px;
   background: #fdfdfb;
@@ -38,8 +43,17 @@ body {
   gap: 10px;
 }
 
+.airline svg {
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,.6))
+    drop-shadow(0 -1px 1px rgba(0,0,0,.3));
+}
+
 .name {
   font-weight: 600;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.6),
+    0 -1px 1px rgba(0,0,0,.3);
 }
 
 .info {
@@ -47,25 +61,29 @@ body {
   font-size: 13px;
 }
 
+.info p {
+  margin: 4px 0;
+}
+
 .info span {
   display: block;
   font-size: 10px;
-  opacity: .6;
   text-transform: uppercase;
+  opacity: .6;
 }
 
-/* RIGHT */
+/* RIGHT STUB */
 .right {
   flex: 1;
   background: #f1f1ee;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* ZIGZAG */
+/* ZIGZAG TEAR */
 .right::before {
   content: "";
   position: absolute;
