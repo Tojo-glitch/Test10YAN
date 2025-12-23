@@ -1,33 +1,33 @@
-* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
 body {
   margin: 0;
-  background: radial-gradient(#0b1d33, #050b14);
+  background: #0b1d33;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #1a1a1a;
-  overflow: hidden;
 }
 
-/* === PASS === */
-.pass-container {
-  z-index: 2;
+.wrapper {
+  padding: 20px;
 }
 
 .boarding-pass {
-  display: flex;
   width: 340px;
   height: 180px;
   background: #fdfdfb;
   border-radius: 14px;
+  display: flex;
   box-shadow: 0 20px 40px rgba(0,0,0,.35);
   overflow: hidden;
 }
 
 /* LEFT */
-.pass-left {
+.left {
   flex: 3;
   padding: 16px;
 }
@@ -38,17 +38,8 @@ body {
   gap: 10px;
 }
 
-.airline svg {
-  filter:
-    drop-shadow(0 1px 0 rgba(255,255,255,.6))
-    drop-shadow(0 -1px 1px rgba(0,0,0,.3));
-}
-
-.airline-name {
+.name {
   font-weight: 600;
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.6),
-    0 -1px 1px rgba(0,0,0,.3);
 }
 
 .info {
@@ -56,49 +47,50 @@ body {
   font-size: 13px;
 }
 
-.info p {
-  margin: 4px 0;
-}
-
 .info span {
   display: block;
   font-size: 10px;
-  text-transform: uppercase;
   opacity: .6;
+  text-transform: uppercase;
 }
 
-/* RIGHT STUB */
-.pass-right {
+/* RIGHT */
+.right {
   flex: 1;
-  background: #f4f4f1;
+  background: #f1f1ee;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* ZIGZAG */
-.pass-right::before {
+.right::before {
   content: "";
   position: absolute;
   left: -10px;
   top: 0;
   width: 10px;
   height: 100%;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 6px,
-      #fdfdfb 6px,
-      #fdfdfb 12px
-    );
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 6px,
+    #fdfdfb 6px,
+    #fdfdfb 12px
+  );
 }
 
-/* BARCODE */
+.stub {
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
 .barcode {
-  width: 30px;
+  width: 28px;
   height: 120px;
   background: repeating-linear-gradient(
     to bottom,
@@ -107,11 +99,4 @@ body {
     transparent 2px,
     transparent 4px
   );
-}
-
-.stub-text {
-  writing-mode: vertical-rl;
-  margin-bottom: 10px;
-  font-size: 10px;
-  letter-spacing: 2px;
 }
