@@ -2,47 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3650 Dayairlines Boarding Pass</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- IMPORTANT: path ตรง -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
 
-<div class="scene">
-  <div class="card" id="card">
+  <!-- 3D Scene -->
+  <div class="scene">
+    <div class="card" id="card">
 
-    <!-- FRONT -->
-    <div class="card-face card-front">
-      <div class="pass">
-        <div class="airline-logo">
-          <!-- โลโก้หัวใจชมพู + เครื่องบินขาว -->
-          <svg viewBox="0 0 100 100" width="56">
-            <path d="M50 85 C10 55,5 30,25 18 C38 10,50 20,50 30 C50 20,62 10,75 18 C95 30,90 55,50 85Z" fill="#f38fb2"/>
-            <path d="M50 28 L55 45 L80 50 L55 55 L50 72 L45 55 L20 50 L45 45Z" fill="#ffffff"/>
-          </svg>
-          <div class="airline-name">3650 Dayairlines</div>
-        </div>
+      <!-- FRONT SIDE -->
+      <div class="card-face card-front">
+        <div class="pass">
 
-        <div class="content">
-          <p><strong>Passenger:</strong> You & Me</p>
-          <p><strong>From:</strong> The Day We Met</p>
-          <p><strong>To:</strong> Forever</p>
-          <p><strong>Seat:</strong> Side by Side</p>
-          <p><strong>Class:</strong> Forever Class</p>
+          <div class="airline-logo">
+            <!-- LOGO -->
+            <svg viewBox="0 0 100 100" width="56" aria-hidden="true">
+              <!-- Heart -->
+              <path
+                d="M50 85 C10 55,5 30,25 18 C38 10,50 20,50 30 C50 20,62 10,75 18 C95 30,90 55,50 85Z"
+                fill="#f38fb2"
+              />
+              <!-- Plane -->
+              <path
+                d="M50 28 L55 45 L80 50 L55 55 L50 72 L45 55 L20 50 L45 45Z"
+                fill="#ffffff"
+              />
+            </svg>
+
+            <div class="airline-name">3650 Dayairlines</div>
+          </div>
+
+          <div class="content">
+            <p><strong>Passenger:</strong> You &amp; Me</p>
+            <p><strong>From:</strong> The Day We Met</p>
+            <p><strong>To:</strong> Forever</p>
+            <p><strong>Departure Date:</strong> Our 10th Anniversary</p>
+            <p><strong>Seat:</strong> Side by Side</p>
+            <p><strong>Class:</strong> Forever Class</p>
+          </div>
+
         </div>
       </div>
-    </div>
 
-    <!-- BACK -->
-    <div class="card-face card-back">
-      <div class="back-text">
-        Valid for every journey with you
+      <!-- BACK SIDE -->
+      <div class="card-face card-back">
+        <div class="back-text">
+          Valid for every journey with you
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <!-- SCRIPT -->
+  <script src="./script.js"></script>
 </body>
 </html>
