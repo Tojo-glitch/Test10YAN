@@ -140,3 +140,13 @@ body {
   letter-spacing: 2px;
   color: #444;
 }
+/* === REAL 3D CARD === */
+.pass-wrap {
+  perspective: 1200px;
+}
+
+.pass {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
