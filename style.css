@@ -127,3 +127,13 @@ canvas {
     height: 210px;
   }
 }
+/* === 3D TILT === */
+.pass-wrap {
+  perspective: 1000px;
+}
+
+.pass {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
