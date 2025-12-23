@@ -4,25 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forever Boarding Pass</title>
+
+  <!-- IMPORTANT: ต้องชื่อ style.css -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Snow background -->
+  <!-- BACKGROUND SNOW -->
   <div class="snow"></div>
 
-  <!-- Perspective wrapper -->
+  <!-- 3D PERSPECTIVE WRAPPER -->
   <div class="pass-wrap">
 
-    <!-- BOARDING PASS CARD -->
+    <!-- BOARDING PASS CARD (ตัวนี้คือหัวใจ) -->
     <div class="pass">
 
+      <!-- LEFT SIDE -->
       <div class="pass-left">
         <h1>BOARDING PASS</h1>
 
         <div class="field">
           <span>Passenger</span>
-          <strong>You & Me</strong>
+          <strong>You &amp; Me</strong>
         </div>
 
         <div class="field">
@@ -37,8 +40,8 @@
 
         <div class="row">
           <div class="field">
-            <span>Date</span>
-            <strong>10th Anniversary</strong>
+            <span>Departure Date</span>
+            <strong>Our 10th Anniversary</strong>
           </div>
           <div class="field">
             <span>Seat</span>
@@ -57,15 +60,20 @@
         </p>
       </div>
 
-      <!-- BARCODE STUB -->
+      <!-- RIGHT STUB -->
       <div class="pass-right">
         <div class="barcode"></div>
-        <div class="gate">GATE<br><strong>B</strong></div>
+
+        <div class="gate">
+          GATE<br>
+          <strong>B</strong>
+        </div>
       </div>
 
     </div>
   </div>
 
+  <!-- IMPORTANT: ต้องชื่อ script.js -->
   <script src="script.js"></script>
 </body>
 </html>
