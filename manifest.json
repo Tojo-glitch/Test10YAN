@@ -1,8 +1,8 @@
 {
-  "name": "Border Pass Coupon",
-  "short_name": "Coupon",
+  "name": "You & Me – Forever Pass",
+  "short_name": "Forever Pass",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f2027",
-  "theme_color": "#ff4d4f"
+  "theme_color": "#ff4d6d"
 }
