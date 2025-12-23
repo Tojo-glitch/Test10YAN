@@ -11,64 +11,82 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <!-- Snow -->
-  <canvas id="snow"></canvas>
 
-  <div class="pass-wrapper">
-    <!-- Tear Stub -->
-    <div class="tear-stub" id="tearZone">
-      <div class="stub-text">
-        FOREVER<br>PASS
-      </div>
-      <div class="stub-action">SLIDE<br>TO<br>TEAR</div>
+<canvas id="snow"></canvas>
+
+<div class="pass-wrap">
+
+  <!-- STUB -->
+  <div class="stub" id="tearZone">
+    <div class="stub-top">
+      FOREVER<br>PASS
     </div>
-
-    <!-- Main Ticket -->
-    <div class="ticket" id="ticket">
-      <div class="ticket-header">
-        <span>PASSENGER</span>
-        <h1>You &amp; Me</h1>
-      </div>
-
-      <div class="route">
-        <div>
-          <label>FROM</label>
-          <p>The Day We Met</p>
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div>
-          <label>TO</label>
-          <p>Forever</p>
-        </div>
-      </div>
-
-      <div class="details">
-        <div>
-          <label>DEPARTURE DATE</label>
-          <p>Our 10th Anniversary</p>
-        </div>
-        <div>
-          <label>SEAT</label>
-          <p>Side by Side</p>
-        </div>
-        <div>
-          <label>CLASS</label>
-          <p>Forever Class</p>
-        </div>
-      </div>
-
-      <div class="footer">
-        This is not a real ticket, but a promise of a journey we’ll take together.
-      </div>
+    <div class="stub-mid">
+      GATE<br><strong>LOVE</strong>
+    </div>
+    <div class="stub-bottom">
+      SLIDE<br>TO<br>TEAR
     </div>
   </div>
 
-  <audio id="tearSound" src="assets/tear.mp3"></audio>
+  <!-- MAIN PASS -->
+  <div class="pass">
 
-  <script src="script.js"></script>
+    <div class="header">
+      <span>PASSENGER</span>
+      <h1>You &amp; Me</h1>
+    </div>
+
+    <div class="route">
+      <div>
+        <label>FROM</label>
+        <p>The Day We Met</p>
+      </div>
+      <div class="arrow">→</div>
+      <div>
+        <label>TO</label>
+        <p>Forever</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <div>
+        <label>DEPARTURE DATE</label>
+        <p>Our 10th Anniversary</p>
+      </div>
+      <div>
+        <label>SEAT</label>
+        <p>Side by Side</p>
+      </div>
+      <div>
+        <label>CLASS</label>
+        <p>Forever Class</p>
+      </div>
+      <div>
+        <label>GATE</label>
+        <p>LOVE</p>
+      </div>
+    </div>
+
+    <div class="codes">
+      <div class="qr">
+        <div class="qr-box"></div>
+        <span>SCAN</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      This is not a real ticket, but a promise of a journey we’ll take together.
+    </div>
+
+    <!-- BARCODE (FULL HEIGHT RIGHT) -->
+    <div class="barcode"></div>
+
+  </div>
+</div>
+
+<audio id="tearSound" src="assets/tear.mp3"></audio>
+<script src="script.js"></script>
 </body>
 </html>
