@@ -4,62 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3650 Dayairlines Boarding Pass</title>
-
-  <!-- IMPORTANT: path ตรง -->
   <link rel="stylesheet" href="./style.css" />
 </head>
-
 <body>
 
-  <!-- 3D Scene -->
-  <div class="scene">
-    <div class="card" id="card">
+<canvas id="snow"></canvas>
 
-      <!-- FRONT SIDE -->
-      <div class="card-face card-front">
-        <div class="pass">
+<div class="pass-container">
+  <div class="boarding-pass">
 
-          <div class="airline-logo">
-            <!-- LOGO -->
-            <svg viewBox="0 0 100 100" width="56" aria-hidden="true">
-              <!-- Heart -->
-              <path
-                d="M50 85 C10 55,5 30,25 18 C38 10,50 20,50 30 C50 20,62 10,75 18 C95 30,90 55,50 85Z"
-                fill="#f38fb2"
-              />
-              <!-- Plane -->
-              <path
-                d="M50 28 L55 45 L80 50 L55 55 L50 72 L45 55 L20 50 L45 45Z"
-                fill="#ffffff"
-              />
-            </svg>
-
-            <div class="airline-name">3650 Dayairlines</div>
-          </div>
-
-          <div class="content">
-            <p><strong>Passenger:</strong> You &amp; Me</p>
-            <p><strong>From:</strong> The Day We Met</p>
-            <p><strong>To:</strong> Forever</p>
-            <p><strong>Departure Date:</strong> Our 10th Anniversary</p>
-            <p><strong>Seat:</strong> Side by Side</p>
-            <p><strong>Class:</strong> Forever Class</p>
-          </div>
-
-        </div>
+    <!-- LEFT -->
+    <div class="pass-left">
+      <div class="airline">
+        <svg viewBox="0 0 100 100" width="50">
+          <path d="M50 85 C10 55,5 30,25 18 C38 10,50 20,50 30 C50 20,62 10,75 18 C95 30,90 55,50 85Z" fill="#f38fb2"/>
+          <path d="M50 28 L55 45 L80 50 L55 55 L50 72 L45 55 L20 50 L45 45Z" fill="#fff"/>
+        </svg>
+        <div class="airline-name">3650 Dayairlines</div>
       </div>
 
-      <!-- BACK SIDE -->
-      <div class="card-face card-back">
-        <div class="back-text">
-          Valid for every journey with you
-        </div>
+      <div class="info">
+        <p><span>Passenger</span>You &amp; Me</p>
+        <p><span>From</span>The Day We Met</p>
+        <p><span>To</span>Forever</p>
+        <p><span>Departure</span>Our 10th Anniversary</p>
+        <p><span>Seat</span>Side by Side</p>
+        <p><span>Class</span>Forever Class</p>
       </div>
-
     </div>
-  </div>
 
-  <!-- SCRIPT -->
-  <script src="./script.js"></script>
+    <!-- RIGHT STUB -->
+    <div class="pass-right">
+      <div class="stub-text">LOVE FLIGHT</div>
+      <div class="barcode"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="./script.js"></script>
 </body>
 </html>
