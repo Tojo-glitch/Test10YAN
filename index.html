@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coupon</title>
+  <title>Border Pass Coupon</title>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 
-<div class="coupon">
-  <div class="tear-area" id="tear">
-    <p>ปัดขึ้นเพื่อฉีกคูปอง</p>
+  <!-- Snow background -->
+  <canvas id="snow"></canvas>
+
+  <!-- Card -->
+  <div class="card">
+    <div class="tear-zone" id="tearZone">
+      <span>SLIDE TO TEAR →</span>
+    </div>
+
+    <div class="card-content" id="cardContent">
+      <h2>🎉 CONGRATULATIONS</h2>
+      <p>50% OFF BORDER PASS</p>
+    </div>
   </div>
 
-  <div class="coupon-content" id="content">
-    🎉 คูปองส่วนลด 50% 🎉
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
