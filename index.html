@@ -2,57 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <title>You & Me – Forever Pass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever Pass</title>
 
-  <!-- Mobile / PWA -->
+  <!-- iOS App Mode -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
-<body>
 
+<body>
   <!-- Snow -->
   <canvas id="snow"></canvas>
 
-  <!-- Sound -->
-  <audio id="tearSound" src="tear.mp3" preload="auto"></audio>
-
-  <!-- Card -->
-  <div class="card">
-    <div class="tear-zone" id="tearZone">
-      <span>SLIDE TO TEAR</span>
+  <div class="pass-wrapper">
+    <!-- Tear Stub -->
+    <div class="tear-stub" id="tearZone">
+      <div class="stub-text">
+        FOREVER<br>PASS
+      </div>
+      <div class="stub-action">SLIDE<br>TO<br>TEAR</div>
     </div>
 
-    <div class="card-content" id="cardContent">
-      <h3>Passenger</h3>
-      <p>You & Me</p>
-
-      <div class="row">
-        <div><strong>From</strong><br>The Day We Met</div>
-        <div><strong>To</strong><br>Forever</div>
+    <!-- Main Ticket -->
+    <div class="ticket" id="ticket">
+      <div class="ticket-header">
+        <span>PASSENGER</span>
+        <h1>You &amp; Me</h1>
       </div>
 
-      <div class="row">
-        <div><strong>Departure Date</strong><br>Our 10th Anniversary</div>
-        <div><strong>Seat</strong><br>Side by Side</div>
+      <div class="route">
+        <div>
+          <label>FROM</label>
+          <p>The Day We Met</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div>
+          <label>TO</label>
+          <p>Forever</p>
+        </div>
       </div>
 
-      <div class="row single">
-        <div><strong>Class</strong><br>Forever Class</div>
+      <div class="details">
+        <div>
+          <label>DEPARTURE DATE</label>
+          <p>Our 10th Anniversary</p>
+        </div>
+        <div>
+          <label>SEAT</label>
+          <p>Side by Side</p>
+        </div>
+        <div>
+          <label>CLASS</label>
+          <p>Forever Class</p>
+        </div>
       </div>
 
-      <p class="note">
-        This is not a real ticket,<br>
-        but a promise of a journey we’ll take together.
-      </p>
+      <div class="footer">
+        This is not a real ticket, but a promise of a journey we’ll take together.
+      </div>
     </div>
   </div>
+
+  <audio id="tearSound" src="assets/tear.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
