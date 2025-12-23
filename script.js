@@ -32,3 +32,5 @@ function snow() {
   requestAnimationFrame(snow);
 }
 snow();
+// intentionally minimal
+console.log("3650 Dayairlines ready");
