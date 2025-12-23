@@ -62,3 +62,44 @@ for (let i = 0; i < 120; i++) {
   });
   requestAnimationFrame(draw);
 })();
+/* === 3D TILT INTERACTION === */
+const pass = document.querySelector(".pass");
+
+let rect, centerX, centerY;
+
+function calc(e) {
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  const y = e.touches ? e.touches[0].clientY : e.clientY;
+
+  const dx = (x - centerX) / rect.width;
+  const dy = (y - centerY) / rect.height;
+
+  const rotateY = dx * 8;   // ซ้าย-ขวา
+  const rotateX = -dy * 6;  // บน-ล่าง
+
+  pass.style.transform =
+    `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+
+pass.addEventListener("mouseenter", () => {
+  rect = pass.getBoundingClientRect();
+  centerX = rect.left + rect.width / 2;
+  centerY = rect.top + rect.height / 2;
+});
+
+pass.addEventListener("mousemove", calc);
+pass.addEventListener("mouseleave", () => {
+  pass.style.transform = "rotateX(0deg) rotateY(0deg)";
+});
+
+/* mobile */
+pass.addEventListener("touchstart", () => {
+  rect = pass.getBoundingClientRect();
+  centerX = rect.left + rect.width / 2;
+  centerY = rect.top + rect.height / 2;
+});
+
+pass.addEventListener("touchmove", calc);
+pass.addEventListener("touchend", () => {
+  pass.style.transform = "rotateX(0deg) rotateY(0deg)";
+});
